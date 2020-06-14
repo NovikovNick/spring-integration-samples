@@ -1,0 +1,36 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+allprojects {
+    group 'com.metalheart'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+subprojects {
+    dependencies {
+
+        compile group: 'org.springframework.integration', name: 'spring-integration-core', version: "$springVersion"
+        compile group: "org.springframework.boot", name: "spring-boot-starter-test", version: "$springBootVersion"
+
+        compile group: 'ch.qos.logback', name: 'logback-classic', version: "$logbackVersion"
+        compile group: 'ch.qos.logback', name: 'logback-core', version: "$logbackVersion"
+
+        // lombok
+        annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+        compile group: "org.projectlombok", name: "lombok", version: "$lombokVersion"
+
+        testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+        testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    }
+}

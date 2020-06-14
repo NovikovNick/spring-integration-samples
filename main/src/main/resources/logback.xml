@@ -1,0 +1,21 @@
+
+<configuration debug="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%thread %logger{0}: %msg</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.metalheart" level="debug" >
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!--Root logger-->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

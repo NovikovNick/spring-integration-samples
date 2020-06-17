@@ -1,2 +1,8 @@
 dependencies {
+
+    compile "org.springframework.integration:spring-integration-amqp:$springVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+
+    testCompile "org.testcontainers:rabbitmq:$testContainersVersion"
+    testCompile group: "org.awaitility", name: "awaitility", version:"$awaitilityVersion"
 }

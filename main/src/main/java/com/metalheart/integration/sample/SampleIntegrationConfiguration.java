@@ -1,7 +1,6 @@
-package com.metalheart.config;
+package com.metalheart.integration.sample;
 
 import com.metalheart.Constant;
-import com.metalheart.sample.TestHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +11,9 @@ import org.springframework.integration.dsl.IntegrationFlows;
 
 @Configuration
 @EnableIntegration
-@ComponentScan("com.metalheart")
-@IntegrationComponentScan("com.metalheart")
-public class IntegrationConfig {
+@ComponentScan("com.metalheart.integration.sample")
+@IntegrationComponentScan("com.metalheart.integration.sample")
+public class SampleIntegrationConfiguration {
 
     @Bean
     public IntegrationFlow happyFlow(TestHandler handler) {

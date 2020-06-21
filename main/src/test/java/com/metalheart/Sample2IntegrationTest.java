@@ -3,15 +3,12 @@ package com.metalheart;
 import com.metalheart.container.AbstractTest;
 import com.metalheart.integration.sample2.OutboundMQGateway;
 import com.metalheart.integration.sample2.Sample2IntegrationConfiguration;
-import com.metalheart.integration.sample2.model.SampleEvent;
 import com.metalheart.integration.sample2.model.SampleEventA;
 import com.metalheart.integration.sample2.model.SampleEventB;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.integration.dsl.StandardIntegrationFlow;
 import org.springframework.test.context.ContextConfiguration;
 
 @Slf4j

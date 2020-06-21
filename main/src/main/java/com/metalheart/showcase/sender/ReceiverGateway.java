@@ -1,19 +1,20 @@
-package com.metalheart.integration.sample2;
+package com.metalheart.showcase.sender;
 
-import com.metalheart.Constant;
-import com.metalheart.model.SampleEvent;
+import com.metalheart.showcase.ShowcaseConstants;
+import com.metalheart.showcase.common.model.RequestEvent;
 import org.springframework.integration.annotation.GatewayHeader;
 import org.springframework.integration.annotation.MessagingGateway;
 
 
 @MessagingGateway(
-    defaultRequestChannel = Constant.OUTBOUND_MQ_CHANNEL,
+    defaultRequestChannel = ShowcaseConstants.RECEIVER_CHANNEL,
+    errorChannel = ShowcaseConstants.SENDER_ERROR_CHANNEL,
     defaultPayloadExpression = "@objectMapper.writeValueAsString(#args[0])",
     defaultHeaders = {
         @GatewayHeader(name = "contentType", value = "application/json"),
         @GatewayHeader(name = "amqp_type", expression = "#args[0].getType()")
     })
-public interface OutboundMQGateway {
+public interface ReceiverGateway {
 
-    void send(SampleEvent payload);
+    void send(RequestEvent request);
 }

@@ -1,5 +1,6 @@
 package com.metalheart.integration.sample2.model;
 
+import com.metalheart.model.SampleEvent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

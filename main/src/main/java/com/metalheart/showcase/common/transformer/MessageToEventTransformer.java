@@ -1,9 +1,13 @@
-package com.metalheart.integration.sample2;
+package com.metalheart.showcase.common.transformer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.metalheart.model.SampleEvent;
-import com.metalheart.integration.sample2.model.SampleEventA;
-import com.metalheart.integration.sample2.model.SampleEventB;
+import com.metalheart.showcase.common.model.AcceptedEvent;
+import com.metalheart.showcase.common.model.DeniedEvent;
+import com.metalheart.showcase.common.model.ErrorEvent;
+import com.metalheart.showcase.common.model.RequestEvent;
+import com.metalheart.showcase.common.model.ResultEvent;
+import com.metalheart.showcase.common.model.SuccessEvent;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +26,16 @@ public class MessageToEventTransformer implements GenericTransformer<Message, Sa
     private ObjectMapper mapper;
 
     private Map<String, Class<?>> eventTypeBindings = Map.of(
-        SampleEventA.EVENT_TYPE, SampleEventA.class,
-        SampleEventB.EVENT_TYPE, SampleEventB.class
+
+        RequestEvent.EVENT_TYPE, RequestEvent.class,
+        ResultEvent.EVENT_TYPE, ResultEvent.class,
+
+
+        AcceptedEvent.EVENT_TYPE, AcceptedEvent.class,
+        DeniedEvent.EVENT_TYPE, DeniedEvent.class,
+
+        SuccessEvent.EVENT_TYPE, SuccessEvent.class,
+        ErrorEvent.EVENT_TYPE, ErrorEvent.class
     );
 
     @Override

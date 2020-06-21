@@ -1,4 +1,4 @@
-package com.metalheart.integration.sample2.model;
+package com.metalheart.model;
 
 public interface SampleEvent {
     String getType();

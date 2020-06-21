@@ -100,7 +100,6 @@ public class Sample2IntegrationConfiguration {
 
         return IntegrationFlows.from(Constant.OUTBOUND_MQ_CHANNEL)
             .handle(Amqp.outboundAdapter(amqpTemplate).exchangeName(EXCHANGE_NAME).headersMappedLast(true))
-            .handle((m) -> log.info("Send event: " + m.getPayload()))
             .get();
     }
 
